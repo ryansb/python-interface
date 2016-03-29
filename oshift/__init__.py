@@ -181,6 +181,8 @@ class RestApi(object):
             api_version = "application/json;version=%s" % user_specified_api_version
 
             _headers['Accept'] = api_version
+        else:
+            _headers['Accept'] = 'application/json'
 
         self.response = requests.request(
             auth=None if self._auth is None else self._auth,
